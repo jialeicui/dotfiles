@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<root>
+  <!-- 设备自定义 -->
+  <!-- (for Varmilo VB660M)
+    Bluetooth Keyboard (Unknown)
+    Vendor ID:0x1345
+    Product ID:0x1005
+    Location ID:0x5160d9c
+
+    USB Device (?????)
+    Vendor ID:0x1345
+    Product ID:0x7103
+    Location ID:0x14200000
+  -->
+  <devicevendordef>
+    <vendorname>VARMILO</vendorname>
+    <vendorid>0x1345</vendorid>
+  </devicevendordef>
+  <deviceproductdef>
+    <productname>VB660M</productname>
+    <productid>0x1005</productid>
+  </deviceproductdef>
+  <deviceproductdef>
+    <productname>VB660M-USB</productname>
+    <productid>0x7103</productid>
+  </deviceproductdef>
+  <devicevendordef>
+    <vendorname>KBTalking</vendorname>
+    <vendorid>0x0f39</vendorid>
+  </devicevendordef>
+  <deviceproductdef>
+    <productname>RACE-II-K82H</productname>
+    <productid>0x0825</productid>
+  </deviceproductdef>
+
+
+  <!-- 应用程序定义 -->
+  <appdef>
+    <appname>TweetBot</appname>
+    <equal>com.tapbots.TweetbotMac</equal>
+  </appdef>
+  <appdef>
+    <appname>IDEA</appname>
+    <equal>com.jetbrains.intellij</equal>
+  </appdef>
+  <appdef>
+    <appname>Safari</appname>
+    <equal>com.apple.Safari</equal>
+  </appdef>
+  <appdef>
+    <appname>Mail</appname>
+    <equal>com.apple.mail</equal>
+  </appdef>
+
+  <replacementdef>
+    <replacementname>VIM_EMU_ONLY_APPS</replacementname>
+    <replacementvalue/>
+    <replacementname>VIM_EMU_IGNORE_APPS</replacementname>
+    <replacementvalue>IDEA</replacementvalue>
+  </replacementdef>
+
+  <!-- 我的触发器 -->
+  <item>
+    <name>自定义</name>
+    <item>
+      <name>IDEA: 带 ALT (OPT) 的热键不支持 Java 7+，需手动映射</name>
+      <appendix>- Column Mode: [ OPTION + C ] to [ CMD + SHIFT + C ]</appendix>
+      <identifier>my.remap.JetBrains.hotKeys</identifier>
+      <block>
+        <only>IDEA</only>
+        <autogen>__KeyToKey__
+          KeyCode::C, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+          KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    <item>
+      <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</name>
+      <identifier>my.remap.TweetBot.hotKeys</identifier>
+      <block>
+        <only>TweetBot</only>
+        <!--
+        <uielementrole_not>AXTextArea, AXTextField, AXCheckBox, AXComboBox</uielementrole_not>
+        -->
+        <uielementrole_only>AXTable, AXWindow, AXScrollArea</uielementrole_only>
+        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+        <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
+        <autogen>__KeyToKey__
+          KeyCode::I,
+          KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+        <autogen>__KeyToKey__
+          KeyCode::SPACE, ModifierFlag::NONE,
+          KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    <item>
+      <name>针对特定 APP （如 Mail），使用 H J K L 控制方向</name>
+      <identifier>my.remap.H_J_K_L_Keys</identifier>
+      <block>
+        <only>Mail</only>
+        <uielementrole_only>AXTable, AXScrollArea</uielementrole_only>
+        <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+        <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
+      </block>
+    </item>
+    <!--
+    <item>
+      <name>Safari: t 变成 ctrl-t (Twitter 分享，需要在系统偏好设置)</name>
+      <identifier>my.remap.Safari.hotKeys</identifier>
+      <block>
+        <only>Safari</only>
+        <uielementrole_only>AXWebArea, AXGroup</uielementrole_only>
+        <autogen>__KeyToKey__
+          KeyCode::T, ModifierFlag::NONE,
+          KeyCode::T, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    -->
+    <item>
+      <name>官方中文输入法: 单击 Shift_L 触发 CapsLock - 中英文切换</name>
+      <inputsource_only>CHINESE_SIMPLIFIED</inputsource_only>
+      <identifier>my.remap.shiftL2shiftL_capslock.CHINESE_SIMPLIFIED</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::CAPSLOCK</autogen>
+    </item>
+    <item>
+      <name>连击 Control 触发 CapsLock</name>
+      <identifier>my.remap.DoubleControl_CapsLock</identifier>
+      <autogen>--DoublePressModifier--
+        KeyCode::CONTROL_L, KeyCode::CONTROL_L,
+        KeyCode::CAPSLOCK
+      </autogen>
+    </item>
+    <item>
+      <name>使用右 Command 键触发功能: 亮度调节 / 音量调节 / 音乐播放 / 方向键</name>
+      <appendix>- [ A, S, D, F ] to [ Volume Dow, Up, Mute, Eject (仿 HHKB) ]</appendix>
+      <appendix>- [ 1, 2, 4 ] to [ Brightness Down, Brightness Up, LaunchPad ]</appendix>
+      <appendix>- [ 7, 8, 9 ] to [ Music Prev, Music Play/Pause, Music Next ]</appendix>
+      <appendix>- [『;』, 『/』, 『'』，『[』] to [ Arrow Left, Down, Right, Up ]</appendix>
+      <appendix>- [ =/F12 ] to [ PrintScreen ]</appendix>
+      <identifier>my.remap.ModifierR_FUNCTIONAL</identifier>
+      <autogen>__KeyToKey__ KeyCode::A,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::S,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::D,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
+      <autogen>__KeyToKey__ KeyCode::F,             ModifierFlag::COMMAND_R, ConsumerKeyCode::EJECT</autogen>
+      <autogen>__KeyToKey__ KeyCode::SEMICOLON,     ModifierFlag::COMMAND_R, KeyCode::CURSOR_LEFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::QUOTE,         ModifierFlag::COMMAND_R, KeyCode::CURSOR_RIGHT</autogen>
+      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT,  ModifierFlag::COMMAND_R, KeyCode::CURSOR_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::SLASH,         ModifierFlag::COMMAND_R, KeyCode::CURSOR_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_1,         ModifierFlag::COMMAND_R, ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_2,         ModifierFlag::COMMAND_R, ConsumerKeyCode::BRIGHTNESS_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_4,         ModifierFlag::COMMAND_R, KeyCode::LAUNCHPAD</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_7,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_PREV</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_8,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_PLAY</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_9,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_NEXT</autogen>
+      <autogen>__KeyToKey__ KeyCode::EQUAL,         ModifierFlag::COMMAND_R, KeyCode::PC_PRINTSCREEN</autogen>
+      <autogen>__KeyToKey__ KeyCode::F12,           ModifierFlag::COMMAND_R, KeyCode::PC_PRINTSCREEN</autogen>
+    </item>
+    <item>
+      <name>交换 Backspace 和 Backslash '\' (仿 HHKB)</name>
+      <identifier>my.remap.swap_backspace_baskslash</identifier>
+      <device_only>
+        DeviceVendor::KBTalking, DeviceProduct::RACE-II-K82H,  DeviceLocation::ANY,
+        DeviceVendor::VARMILO,   DeviceProduct::VB660M,        DeviceLocation::ANY,
+        DeviceVendor::VARMILO,   DeviceProduct::VB660M-USB,    DeviceLocation::ANY
+      </device_only>
+      <block>
+        <only>Safari</only>
+        <autogen>__KeyToKey__
+          KeyCode::BACKSLASH, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+          KeyCode::BACKSLASH, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+      <block>
+        <not>Safari</not>
+        <autogen>__KeyToKey__
+          KeyCode::DELETE,    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+          KeyCode::DELETE,    ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+      <block>
+        <autogen>__KeyToKey__ KeyCode::DELETE, KeyCode::BACKSLASH</autogen>
+        <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::DELETE</autogen>
+      </block>
+    </item>
+    <item>
+      <name>Command+Escape to Command+` (Switching Window)</name>
+      <identifier>my.remap.cmd_escape_to_switch_window</identifier>
+      <autogen>__KeyToKey__
+        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::BACKQUOTE, ModifierFlag::COMMAND_L
+      </autogen>
+      <autogen>__KeyToKey__
+        KeyCode::BACKQUOTE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+        KeyCode::ESCAPE, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
+      </autogen>
+    </item>
+    <item>
+      <name>Shift+Escape to Tilde (~, more happy for HHKB)</name>
+      <identifier>my.remap.shift_escape_to_tilde</identifier>
+      <autogen>__KeyToKey__
+        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+        KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L
+      </autogen>
+    </item>
+  </item>
+</root>
