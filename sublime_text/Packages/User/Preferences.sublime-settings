@@ -1,0 +1,14 @@
+{
+	"always_show_minimap_viewport": true,
+	"color_scheme": "Packages/Colorsublime - Themes/monokai-best.tmTheme",
+	"draw_minimap_border": true,
+	"font_face": "source code pro light",
+	"font_size": 13,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_tab_close_buttons": false,
+	"word_wrap": true
+}

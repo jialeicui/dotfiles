@@ -1,0 +1,17 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"ApacheConf.tmLanguage",
+		"CodeIgniter Snippets",
+		"Colorsublime",
+		"ConvertToUTF8",
+		"DashDoc",
+		"GoSublime",
+		"INI",
+		"Package Control",
+		"Phpcs"
+	]
+}

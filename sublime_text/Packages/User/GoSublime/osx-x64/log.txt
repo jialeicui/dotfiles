@@ -1,0 +1,30 @@
+
+** 2015-07-21 11:18:23.876418 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
+
+** 2015-07-22 11:31:41.897141 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
+
+** 2015-07-28 18:04:28.026539 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
+
+** 2015-07-28 18:05:35.737994 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
+
+** 2015-07-29 09:49:29.815583 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
+
+** 2015-07-31 15:13:38.636331 **:
+MarGo: Missing required environment variables: GOPATH
+See the `Quirks` section of USAGE.md for info
+--------------------------------
