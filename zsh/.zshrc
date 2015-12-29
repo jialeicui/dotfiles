@@ -49,7 +49,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git go sublime brew mysql-macports pip python tmux colorize colored-man)
+plugins=(git go sublime brew colorize colored-man docker laravel5)
 
 # User configuration
 
@@ -87,8 +87,10 @@ export PATH="/usr/local/mysql/bin:$PATH"
 
 alias baidu="cd ~/Data/baidu_cloud"
 
-alias use='du -h -d 1'
+alias use='du -h -d 1 | sort -h'
 alias top='top -o cpu'
+alias laravel='~/.composer/vendor/bin/laravel'
+alias dockerinit='eval "$(boot2docker shellinit)"'
 
 #dirs
 hash -d ht="/Users/jialeicui/work/httpDns"
